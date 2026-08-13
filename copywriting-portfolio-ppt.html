@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>文案策划作品集 PPT</title>
+  <style>
+    :root { --cream:#fff7d6; --milk:#ffe9a3; --yellow:#ffd54f; --orange:#f08a24; --ink:#2f2616; --muted:#6a5731; --card:rgba(255,255,255,.72); }
+    * { box-sizing: border-box; }
+    html, body { margin:0; height:100%; overflow:hidden; font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif; color:var(--ink); background:#f6d469; }
+    body { background:radial-gradient(circle at 14% 12%, #fff9d8 0 14%, transparent 30%), linear-gradient(135deg,#fff7dc 0%,#ffe59a 48%,#ffc83d 100%); }
+    .deck { height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+    .slide { min-height:100vh; display:grid; place-items:center; padding:32px 82px 32px 32px; scroll-snap-align:start; }
+    .frame { position:relative; width:min(1180px,100%); aspect-ratio:16/9; min-height:620px; overflow:hidden; border-radius:34px; padding:34px 42px; background:radial-gradient(circle at 82% 18%,#fff0a7 0 15%,transparent 29%),linear-gradient(135deg,#fffdf2 0%,#ffedb2 56%,#ffd45a 100%); box-shadow:0 34px 100px rgba(82,50,0,.25); }
+    .frame:before { content:""; position:absolute; inset:18px; border:1px solid rgba(104,72,10,.16); border-radius:26px; pointer-events:none; }
+    .frame:after { content:"✺"; position:absolute; right:70px; bottom:32px; font-size:120px; color:rgba(240,138,36,.16); }
+    .head,.foot { position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; color:#8d650b; font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:900; }
+    .foot { position:absolute; left:42px; right:42px; bottom:28px; }
+    .content { position:relative; z-index:2; height:calc(100% - 54px); display:grid; grid-template-columns:1.15fr .85fr; gap:42px; align-items:center; }
+    .overline { display:inline-flex; padding:8px 13px; border-radius:999px; background:#fff7cf; color:#a46a00; font-size:13px; font-weight:900; letter-spacing:.08em; }
+    h1 { margin:18px 0 0; max-width:780px; font-size:clamp(50px,6.6vw,92px); line-height:.92; letter-spacing:-.055em; }
+    h2 { max-width:720px; margin:22px 0 0; font-size:clamp(22px,2.5vw,34px); line-height:1.25; color:#9d5d00; letter-spacing:-.02em; }
+    .body { max-width:740px; margin-top:26px; font-size:22px; line-height:1.75; color:var(--muted); }
+    ul { display:grid; gap:12px; margin:26px 0 0; padding:0; list-style:none; }
+    li { position:relative; padding-left:24px; font-size:20px; line-height:1.55; color:#4c3c1c; }
+    li:before { content:""; position:absolute; left:0; top:.72em; width:9px; height:9px; border-radius:50%; background:var(--orange); }
+    .chips { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .chips span { padding:10px 16px; border-radius:999px; background:rgba(255,255,255,.74); border:1px solid rgba(97,66,0,.12); color:#704900; font-weight:900; }
+    .visual { position:relative; min-height:430px; display:grid; place-items:center; }
+    .blob { position:absolute; width:360px; height:360px; border-radius:46% 54% 58% 42%; background:linear-gradient(145deg,#ffbd59,#fff3bc); transform:rotate(-12deg); box-shadow:inset 0 0 0 20px rgba(255,255,255,.28); }
+    .phone { position:relative; width:min(320px,86%); min-height:390px; border-radius:36px; padding:30px; background:var(--card); border:1px solid rgba(255,255,255,.86); box-shadow:0 24px 80px rgba(99,63,0,.18); backdrop-filter:blur(12px); }
+    .dots { display:flex; gap:7px; margin-bottom:54px; } .dots i { width:9px; height:9px; border-radius:50%; background:var(--orange); } .dots i:nth-child(2){background:var(--yellow)} .dots i:nth-child(3){background:var(--ink)}
+    .phone strong { display:block; color:#9d5d00; font-size:16px; letter-spacing:.12em; } .phone p { margin-top:18px; font-size:34px; line-height:1.1; font-weight:900; letter-spacing:-.04em; }
+    .note { position:absolute; right:18px; bottom:52px; transform:rotate(8deg); padding:18px 22px; border-radius:18px; background:#fff1a8; font-size:34px; font-weight:900; box-shadow:0 16px 34px rgba(80,50,0,.16); }
+    .nav { position:fixed; z-index:20; top:50%; right:18px; transform:translateY(-50%); display:grid; gap:8px; }
+    .nav a { display:grid; place-items:center; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.66); color:#6f4a00; text-decoration:none; font-size:12px; font-weight:900; box-shadow:0 10px 28px rgba(92,58,0,.14); }
+    .hint { position:fixed; left:18px; bottom:14px; z-index:30; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.7); color:#7a5609; font-size:13px; font-weight:700; }
+    .s3 .blob,.s4 .blob{background:linear-gradient(145deg,#ff9fb2,#fff3bc)} .s6 .blob{background:linear-gradient(145deg,#ffda38,#d8f6a8)} .s7 .blob{background:linear-gradient(145deg,#ff8f3d,#ffeeb6)}
+    @media (max-width:900px){ html,body{overflow:auto}.deck{scroll-snap-type:none}.nav{display:none}.slide{min-height:auto;padding:18px}.frame{aspect-ratio:auto;min-height:0;padding:28px 22px 72px}.content{grid-template-columns:1fr;height:auto;gap:20px}.visual{min-height:260px}.blob{width:240px;height:240px}.phone{min-height:230px}.body,li{font-size:18px}.foot{left:22px;right:22px}.hint{display:none} }
+    @media print { html,body,.deck{height:auto;overflow:visible;background:#fff}.nav,.hint{display:none}.slide{break-after:page;page-break-after:always;min-height:auto;padding:0}.frame{width:100vw;height:56.25vw;box-shadow:none;border-radius:0} }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="页码导航"></nav>
+  <div class="hint">↑ ↓ / PageUp PageDown 翻页 · 双击本 HTML 即可播放</div>
+  <main class="deck" id="deck"></main>
+  <script>
+    const slides = [
+      ['PORTFOLIO','文案策划作品集','小红书穿搭笔记｜个人公众号运营｜混沌学院服务号｜活动策划文案','以奶黄色为主视觉，把作品图片里的穿搭种草、知识服务与活动传播，整理成一套可展示、可面试、可继续扩展的 PPT 式作品集。',null,['活泼','艺术化','有栏目','有转化']],
+      ['PROFILE','我能提供什么','从灵感捕捉到发布复盘的完整内容链路','擅长把“产品卖点 / 课程价值 / 活动亮点”翻译成用户愿意点开、愿意收藏、愿意行动的内容语言。',['选题规划：热点、用户情绪、品牌节点三线并行','文案输出：标题、正文、海报短句、H5、字幕图、推文','运营复盘：阅读、互动、收藏、预约转化沉淀模板']],
+      ['REDNOTE','小红书穿搭笔记','把一双鞋写成一个可代入的生活场景','以 adidas Originals 相关穿搭图为参考，强化“复古鞋柜、浅色系、甜酷风、假日随拍”等关键词，形成轻松、带画面、适合收藏的种草语气。',['标题：短钩子 + 场景词，例如「挑一双，盘活你的复古鞋柜」','正文：三行一停顿，先氛围后单品，再落到穿搭逻辑','标签：品牌词 + 单品词 + 场景词 + 人群词，提高搜索命中']],
+      ['COPY SAMPLE','穿搭笔记样张','甜酷 / 复古 / 轻运动三类语气','挑一双，盘活你的复古鞋柜。薄底鞋轻盈又通透，把街角、阳光和少年气一起穿上脚。今天不讲大道理，只拆一套甜酷风搭配：上身利落，裙摆留风，鞋底负责把态度踩响。',null,['#adidasOriginals','#SAMBA','#ootdinspo','#甜酷穿搭']],
+      ['WECHAT','个人公众号运营','把个人审美沉淀成稳定栏目','公众号不只追热点，更要建立“可持续的人格”。通过栏目化内容，把生活观察、审美灵感与项目复盘整理成长期资产。',['栏目：灵感手账 / 月度复盘 / 城市漫游 / 作品拆解','结构：故事开场 — 观点展开 — 清单总结 — 互动提问','运营：封面统一、摘要前置、菜单承接、评论区二次互动']],
+      ['HUNDUN','混沌学院服务号','让知识产品被看见，也被预约','围绕课程上新、知识卡、H5、字幕图和共学设计，使用“热点问题—底层逻辑—行动建议”的结构，让复杂议题更易读、更易转化。',['推销类：先抛热点问题，再解释为什么值得听','学习材料：知识卡提炼课程金句，预约后领取资料','共学设计：预热思考、带问题听课、课后共学讨论']],
+      ['EVENT','活动策划文案','从预热到复盘，都要有一句能被记住的话','活动文案重点不是堆信息，而是设计情绪节奏：先制造期待，再明确参与理由，最后沉淀高光瞬间。',['主题命名：短、亮、有画面，例如「活力上新，潮礼全开」','传播节奏：悬念预热 / 嘉宾亮点 / 福利提醒 / 现场快讯','物料覆盖：主视觉标语、邀请函、主持串词、推文复盘']],
+      ['METHOD','我的内容方法论','看图定调 → 拆解卖点 → 设计结构 → 复盘优化','先判断图片和项目的气质，再把信息翻译为用户语言；标题负责停留，正文负责代入，标签与 CTA 负责搜索和行动。',null,['场景化','情绪化','结构化','可复用']]
+    ];
+    const deck = document.getElementById('deck');
+    const nav = document.querySelector('.nav');
+    const pad = n => String(n).padStart(2,'0');
+    deck.innerHTML = slides.map((s,i)=>`<section class="slide s${i+1}" id="slide-${pad(i+1)}"><div class="frame"><header class="head"><span>${s[0]}</span><b>${pad(i+1)} / ${pad(slides.length)}</b></header><div class="content"><div><p class="overline">奶黄色 · Copy Planning Deck</p><h1>${s[1]}</h1><h2>${s[2]}</h2><p class="body">${s[3]}</p>${s[4]?`<ul>${s[4].map(x=>`<li>${x}</li>`).join('')}</ul>`:''}${s[5]?`<div class="chips">${s[5].map(x=>`<span>${x}</span>`).join('')}</div>`:''}</div><aside class="visual" aria-hidden="true"><div class="blob"></div><div class="phone"><span class="dots"><i></i><i></i><i></i></span><strong>${s[0]}</strong><p>${i===0?'COPY / CONTENT / EVENT':s[1]}</p></div><div class="note">✦ ${pad(i+1)}</div></aside></div><footer class="foot"><span>Portfolio by Copy Planner</span><span>奶油黄视觉提案</span></footer></div></section>`).join('');
+    nav.innerHTML = slides.map((_,i)=>`<a href="#slide-${pad(i+1)}">${pad(i+1)}</a>`).join('');
+    function go(delta){ const current = Math.round(deck.scrollTop / window.innerHeight); const next = Math.max(0, Math.min(slides.length - 1, current + delta)); deck.scrollTo({top: next * window.innerHeight, behavior:'smooth'}); }
+    window.addEventListener('keydown', e => { if(['ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); go(1); } if(['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); go(-1); } });
+  </script>
+</body>
+</html>
